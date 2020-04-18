@@ -1,0 +1,47 @@
+{% extends '../snippets/base.html' %}
+{% block body %}
+
+<fieldset>
+	<legend>tambah data</legend>
+	<form method="post">
+		{% csrf_token %}
+		<label for="nama_depan">Nama Depan: </label>
+		<input type="text" name="nama_depan" id="nama_depan"> <br>
+		<label for="nama_belakang">Nama Belakang</label>
+		<input type="text" id="nama_belakang" name="nama_belakang"> <br>
+		<label for="alamat">alamat</label>
+		<textarea id="alamat" name="alamat"></textarea> <br>
+
+		<button type="submit">kirim</button>
+	</form>
+</fieldset>
+<br>
+<fieldset>
+	<legend>tampil data</legend>
+	<table border="1px solid black">
+		<thead>
+			<th>No</th>
+			<th>Nama depan</th>
+			<th>Nama Belakang</th>
+			<th>Alamat</th>
+			<th colspan="2">opsi</th>
+		</thead>
+		<tbody>
+			{% for user in pengguna %}
+				<tr>
+					<td>{{user.id}}</td>
+					<td>{{user.nama_depan}}</td>
+					<td>{{user.nama_belakang}}</td>
+					<td>{{user.alamat}}</td>
+					<td><a href="{% url 'blog:hapus' input=user.id %}">Hapus</a></td>
+					<td><a href="{% url 'blog:edit' input=user.id %}">edit</a></td>
+				</tr>
+				{% empty %}
+				<tr>
+					<td colspan="5"><center> Tidak ada data </center></td>
+				</tr>
+			{% endfor%}
+		</tbody>
+	</table>
+</fieldset>
+{% endblock body %}

@@ -1,0 +1,16 @@
+{% extends '../snippets/base.html' %}
+{% block body %}
+<fieldset>
+	<legend>tambah data</legend>
+	<form method="post">
+		{% csrf_token %}
+		<label for="nama_depan">Nama Depan: </label>
+		<input type="text" name="nama_depan" id="nama_depan" value="{{edit.nama_depan}}"> <br>
+		<label for="nama_belakang">Nama Belakang</label>
+		<input type="text" id="nama_belakang" name="nama_belakang"  value="{{edit.nama_belakang}}"> <br>
+		<label for="alamat">alamat</label>
+		<textarea id="alamat" name="alamat">{{edit.alamat}}</textarea> <br>
+		<button type="submit">kirim</button>
+	</form>
+</fieldset>
+{% endblock body %}
