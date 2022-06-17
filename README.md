@@ -1,3 +1,4 @@
+[![Readme Card](https://github-readme-stats.vercel.app/api/pin/?username=luxfield&repo=github-readme-stats)](https://github.com/anuraghazra/github-readme-stats)
 # crud-django
 hanya crud simple django framework
 
